@@ -1,0 +1,1 @@
+We are looking for an AI/ML Intern who is proficient in Python and has experience with machine learning, natural language processing, and deep learning frameworks like TensorFlow or PyTorch. Knowledge of NLP tools such as SpaCy or NLTK is preferred.
