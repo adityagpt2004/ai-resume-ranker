@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import tempfile
+import spacy
 from ranker import rank_resumes  # Import your AI function
 
 st.set_page_config(page_title="AI Resume Ranker", layout="wide")
@@ -44,3 +45,11 @@ if st.button("🚀 Rank Resumes"):
             st.write("---")
             for i, (filename, score) in enumerate(ranked, start=1):
                 st.markdown(f"**{i}. {os.path.basename(filename)}** — Score: `{score:.2f}`")
+                # Try loading the model
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    # If not found, download it then load
+    from spacy.cli import download
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
